@@ -1,6 +1,5 @@
 class Kombucha < ApplicationRecord
-  has_many :types
-  has_and_belongs_to_many :flights
+  has_and_belongs_to_many :ingredients
 
   validates :name, present: true
   validates :brand, present: true
