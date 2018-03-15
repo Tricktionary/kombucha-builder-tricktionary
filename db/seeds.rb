@@ -41,6 +41,7 @@ concord_grape = Ingredient.create(name: 'Concord Grape', base: false, caffeine_f
 mango = Ingredient.create(name: 'Mango', base: false, caffeine_free: true, vegan: true)
 guava = Ingredient.create(name: 'Guava', base: false, caffeine_free: true, vegan: true)
 banana = Ingredient.create(name: 'Banana', base: false, caffeine_free: true, vegan: true)
+pineapple = Ingredient.create(name: 'Pineapple', base: false, caffeine_free: true, vegan: true)
 dragon_fruit = Ingredient.create(name: 'Guava', base: false, caffeine_free: true, vegan: true)
 avacado = Ingredient.create(name: 'Avacado', base: false, caffeine_free: true, vegan: true)
 bacon = Ingredient.create(name: 'Bacon', base: false, caffeine_free: true, vegan: false)
@@ -55,6 +56,7 @@ worschestire = Ingredient.create(name: 'Worchestire', base: false, caffeine_free
 clamato = Ingredient.create(name: 'Clamato', base: false, caffeine_free: true, vegan: false)
 sriracha = Ingredient.create(name: 'Sriracha', base: false, caffeine_free: true, vegan: true)
 beer = Ingredient.create(name: 'Beer', base: false, caffeine_free: true, vegan: true)
+redbull = Ingredient.create(name: 'Redbull', base: false, caffeine_free: false, vegan: false)
 
 # Kombuchas
 guinny_pop = Kombucha.create(name: 'Guinny Pop', fizziness_level: 'low')
@@ -74,3 +76,15 @@ pizza_pop.ingredients << [black_tea, bacon, pepperoni, mozzarella]
 
 tropical_party = Kombucha.create(name: 'Tropical Burst', fizziness_level: 'low')
 tropical_party.ingredients << [oolong_tea, mango, guava, dragon_fruit]
+
+spicy_sting = Kombucha.create(name: 'Spicy Sting', fizziness_level: 'high')
+spicy_sting.ingredients << [white_tea, clamato, sriracha, tabasco]
+
+dark_and_stormy = Kombucha.create(name: 'Spicy Sting', fizziness_level: 'medium')
+spicy_sting.ingredients << [black_tea, ginger, chocolate, mandarin_orange]
+
+amped_up = Kombucha.create(name: 'Amped Up', fizziness_level: 'high')
+amped_up.ingredients << [green_tea, redbull, vanilla, ginger]
+
+froot_punch = Kombucha.create(name: 'Froot Punch', fizziness_level: 'medium')
+froot_punch.ingredients << [white_tea, concord_grape, banana, pineapple]
