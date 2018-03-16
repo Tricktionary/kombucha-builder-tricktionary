@@ -1,4 +1,4 @@
-class KombuchaController < ApiController
+class Api::KombuchaController < ApiController
   def index
     @kombuchas = Kombucha.all
     render json: @kombuchas.map(&:to_h), status: :success
@@ -10,14 +10,20 @@ class KombuchaController < ApiController
   end
 
   def create
-    @kombucha = Kombucha.create(params[:Kombucha])
+    @kombucha = Kombucha.create(kombucha_params)
     render json: @kombucha.to_h
   end
 
   def update
     @kombucha = Kombucha.find(params[:id])
-    @kombucha.update(params[:kombucha])
+    @kombucha.update(kombucha_params)
 
     render json: @kombucha.to_h
   end
+
+  private
+
+    def kombucha_params
+      params.require(:kombucha).permit(:name, :brand, :fizziness_level)
+    end
 end
