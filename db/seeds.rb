@@ -63,7 +63,7 @@ guinny_pop = Kombucha.create(name: 'Guinny Pop', fizziness_level: 'low')
 guinny_pop.ingredients << [black_tea, vanilla, mandarin_orange, rose_petal]
 
 pork_pop = Kombucha.create(name: 'Pork Pop', fizziness_level: 'medium')
-pork_pop.ingredients << [oolong_tea, bacon, sausage, ribs]
+pork_pop.ingredients << [oolong_tea, bacon, sausage, ham]
 
 breathyzer = Kombucha.create(name: 'Breathalyzer', fizziness_level: 'medium')
 breathyzer.ingredients << [white_tea, spearmint, peppermint, ginger]
@@ -80,8 +80,8 @@ tropical_party.ingredients << [oolong_tea, mango, guava, dragon_fruit]
 spicy_sting = Kombucha.create(name: 'Spicy Sting', fizziness_level: 'high')
 spicy_sting.ingredients << [white_tea, clamato, sriracha, tabasco]
 
-dark_and_stormy = Kombucha.create(name: 'Spicy Sting', fizziness_level: 'medium')
-spicy_sting.ingredients << [black_tea, ginger, chocolate, mandarin_orange]
+dark_and_stormy = Kombucha.create(name: 'Dark & Stormy', fizziness_level: 'medium')
+dark_and_stormy.ingredients << [black_tea, ginger, chocolate, mandarin_orange]
 
 amped_up = Kombucha.create(name: 'Amped Up', fizziness_level: 'high')
 amped_up.ingredients << [green_tea, redbull, vanilla, ginger]
