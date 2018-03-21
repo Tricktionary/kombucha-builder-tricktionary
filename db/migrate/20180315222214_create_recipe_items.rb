@@ -1,6 +1,6 @@
-class CreateKombuchasIngredients < ActiveRecord::Migration[5.1]
+class CreateRecipeItems < ActiveRecord::Migration[5.1]
   def change
-    create_table :kombuchas_ingredients do |t|
+    create_table :recipe_items do |t|
       t.references :kombucha
       t.references :ingredient
 

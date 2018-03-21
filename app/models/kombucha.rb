@@ -1,8 +1,9 @@
 class Kombucha < ApplicationRecord
-  has_and_belongs_to_many :ingredients
+  has_many :recipe_items
+  has_many :ingredients, through: :recipe_items
 
-  validates :name, present: true
-  validates :brand, present: true
+  validates :name, presence: true
+  validates :fizziness_level, inclusion: { in: %w( high medium low ) }
 
   def to_h
     {

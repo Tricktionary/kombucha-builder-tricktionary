@@ -4,6 +4,8 @@ class CreateIngredients < ActiveRecord::Migration[5.1]
       t.string :name
       t.boolean :base
       t.boolean :caffeine_free
+      t.boolean :vegan
+
       t.timestamps
     end
   end

@@ -10,38 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180315135236) do
+ActiveRecord::Schema.define(version: 20180315222214) do
 
-  create_table "beers", force: :cascade do |t|
+  create_table "ingredients", force: :cascade do |t|
     t.string "name"
-    t.string "brand"
-    t.integer "ibu"
-    t.integer "abv"
-    t.integer "srm"
-    t.integer "og"
-    t.string "server"
-    t.datetime "availability"
+    t.boolean "base"
+    t.boolean "caffeine_free"
+    t.boolean "vegan"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "beers_flights", force: :cascade do |t|
+  create_table "kombuchas", force: :cascade do |t|
+    t.string "name"
+    t.string "fizziness_level"
   end
 
-  create_table "flights", force: :cascade do |t|
-    t.string "name"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_flights_on_user_id"
-  end
-
-  create_table "types", force: :cascade do |t|
-    t.string "name"
-    t.integer "beer_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["beer_id"], name: "index_types_on_beer_id"
+  create_table "recipe_items", force: :cascade do |t|
+    t.integer "kombucha_id"
+    t.integer "ingredient_id"
+    t.integer "amount"
+    t.index ["ingredient_id"], name: "index_recipe_items_on_ingredient_id"
+    t.index ["kombucha_id"], name: "index_recipe_items_on_kombucha_id"
   end
 
   create_table "users", force: :cascade do |t|

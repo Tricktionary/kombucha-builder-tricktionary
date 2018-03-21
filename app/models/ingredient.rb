@@ -1,6 +1,9 @@
 class Ingredient < ApplicationRecord
-  has_and_belongs_to_many :kombuchas
+  has_many :recipe_items
+  has_many :kombuchas, through: :recipe_items
 
-  validates :name, present: true
-  validates :caffeine_free, present: true
+  validates :name, presence: true
+  validates :base, inclusion: { in: [ true, false ] }
+  validates :caffeine_free, inclusion: { in: [ true, false ] }
+  validates :vegan, inclusion: { in: [ true, false ] }
 end
