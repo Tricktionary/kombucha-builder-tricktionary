@@ -1,5 +1,5 @@
 require 'rails_helper'
 
-describe Kombucha, type: :model do
+describe RecipeItem, type: :model do
   fixtures :kombuchas
 end

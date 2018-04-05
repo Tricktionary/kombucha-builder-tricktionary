@@ -9,9 +9,8 @@ class Kombucha < ApplicationRecord
     {
       "id": self.id,
       "name": self.name,
-      "brand": self.brand,
       "fizziness_level": self.fizziness_level,
-      "ingredients": self.ingredient.map(&:name)
+      "ingredients": self.ingredients.map(&:name)
     }
   end
 end
