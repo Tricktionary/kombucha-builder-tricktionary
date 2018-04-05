@@ -1,4 +1,4 @@
-class Api::KombuchaController < ApiController
+class Api::KombuchasController < ApiController
   def index
     @kombuchas = Kombucha.all
     render json: @kombuchas.map(&:to_h), status: :success

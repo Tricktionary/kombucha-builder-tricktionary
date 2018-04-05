@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe KombuchasController, type: :request do
+describe Api::KombuchasController, type: :request do
   fixtures :kombuchas, :ingredients
 
   describe "#index" do
