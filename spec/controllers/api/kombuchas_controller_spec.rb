@@ -12,9 +12,31 @@ describe Api::KombuchasController, type: :request do
   end
 
   describe "#show" do
+    it "shows a kombucha" do
+      kombucha = Kombucha.first
+      get "/api/kombuchas/#{kombucha.id}"
+      expect(response.message).to eq("OK")
+    end
   end
 
   describe "#create" do
+    let(:request_params) {
+      {
+        kombucha: {
+          name: "Orange Pop",
+          fizziness_level: "low"
+        }
+      }
+    }
+
+    it "creates a kombucha" do
+      expect{ post "/api/kombuchas", params: request_params }.to change(Kombucha, :count).by(1)
+    end
+
+    it "does not create kombucha if fizziness level is invalid" do
+      request_params[:kombucha][:fizziness_level] = "fake"
+      expect{ post "/api/kombuchas", params: request_params }.not_to change(Kombucha, :count)
+    end
   end
 
   describe "#update" do
