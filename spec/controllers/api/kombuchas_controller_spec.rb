@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe Api::KombuchasController, type: :request do
-  fixtures :kombuchas, :ingredients
   let(:response_body) { JSON.parse(response.body) }
 
   describe "#index" do
@@ -16,6 +15,7 @@ describe Api::KombuchasController, type: :request do
       kombucha = Kombucha.first
       get "/api/kombuchas/#{kombucha.id}"
       expect(response.message).to eq("OK")
+      expect(response_body["id"]).to eq(kombucha.id)
     end
   end
 
