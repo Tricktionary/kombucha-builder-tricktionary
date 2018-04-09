@@ -1,7 +1,7 @@
 ---
 
 white_tea:
-  name: White Tea'
+  name: White Tea
   base: true
   caffeine_free: true
   vegan: true
