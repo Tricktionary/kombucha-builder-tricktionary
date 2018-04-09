@@ -2,10 +2,10 @@ class ApiController < ApplicationController
 
   protected
     def current_user
-      @user ||= User.find(session[:current_user_id])
+      @user ||= User.find(request.headers["USER_ID"])
     end
 
-    def authenicate_user!
-      session[:current_user_id].present?
+    def authenticate_user!
+      current_user.present?
     end
 end
