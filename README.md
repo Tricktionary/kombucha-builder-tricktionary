@@ -7,12 +7,14 @@ This app uses Rails 5.1 and Ruby 2.5.0.
 
 However, if you don't have Ruby 2.5 installed, please feel free to change the `.ruby-version` to whatever lastest ruby version you have installed on your computer.
 
+In this app there are tests for both rspec and minitest. Please choose whichever testing framework you are most comfortable with!
+
 ## Exercise 1 - Ratings
 
 Users of this app want a way to rate different kombucha recipes through the API.
 
 #### Requirements:
-* Ratings should have a score that returns a number between 1 to 5.
+* Ratings should have a score that returns a number between 1 and 5.
 * Users can only have 1 rating per kombucha.
 * Users should be able read / create / update their rating.
 * The Kombucha resource should have a way to return an average rating based on all user ratings for that particular recipe.
