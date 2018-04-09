@@ -27,9 +27,10 @@ As a kombucha restauranteur, I want a way to surprise and delight my customers b
 * Build a random flight picker for kombucha recipes.
 * Flights should contain 4 different kombucha recipes. They are only valid with 4.
 * Each kombucha should have a different tea base.
-* The endpoint should contain two different options when creating one's flight:
-  * A way to select kombucha recipes greater then a given rating.
-  * A way to select kombucha recipes that contain a specific ingredient
+* The endpoint should contain two different options when creating a new flight:
+  * An optional way to select kombucha recipes greater then a given rating.
+  * An optional way to select a particular kombucha recipe as part of the flight.
+
 
 ## Exercise 3 - Querying Kombucha Recipes
 
