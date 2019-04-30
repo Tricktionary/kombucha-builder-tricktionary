@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class Api::KombuchasControllerTest < ActionDispatch::IntegrationTest
   test "returns collection of kombuchas" do
     get '/api/kombuchas', params: {}, headers: headers
+
     assert_equal response_body.length, Kombucha.count
   end
 
@@ -10,25 +13,29 @@ class Api::KombuchasControllerTest < ActionDispatch::IntegrationTest
     kombucha = kombuchas(:guinny_pop)
 
     get "/api/kombuchas/#{kombucha.id}", headers: headers
+
     assert_equal response_body['id'], kombucha.id
   end
 
   test "creates a new kombucha" do
     post "/api/kombuchas", params: kombucha_params, headers: headers
+
     assert_response :success
     assert_not_nil Kombucha.find(response_body['id'])
   end
 
   test "does not create kombucha if fizziness level is invalid" do
     post "/api/kombuchas", params: invalid_kombucha_params, headers: headers
+
     assert_response :unprocessable_entity
     assert_not_nil response_body['errors']
   end
 
   test "updates a kombucha" do
-    kombucha = kombuchas(:guinny_pop)
+    kombuchas(:guinny_pop)
 
     post "/api/kombuchas", params: kombucha_params, headers: headers
+
     assert_response :success
     assert_not_nil Kombucha.find(response_body['id'])
   end
@@ -37,6 +44,7 @@ class Api::KombuchasControllerTest < ActionDispatch::IntegrationTest
     kombucha = kombuchas(:guinny_pop)
 
     patch "/api/kombuchas/#{kombucha.id}", params: invalid_kombucha_params, headers: headers
+
     assert_response :unprocessable_entity
     assert_not_nil response_body['errors']
   end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::KombuchasController < ApiController
   before_action :authenticate_user!
   before_action :set_kombucha, only: [:show, :update]

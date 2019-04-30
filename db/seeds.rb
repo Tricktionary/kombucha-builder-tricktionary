@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Ingredients
 ## Tea
 white_tea  = Ingredient.create!(name: 'White Tea', base: true, caffeine_free: true, vegan: true)
