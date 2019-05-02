@@ -3,7 +3,7 @@
 Kombucha Builder is an API for creating and managing kombucha recipes.
 
 ## Setup
-This app uses Rails 5.2 and Ruby 2.6.0.
+This app uses Rails 5.2 and Ruby 2.6.3.
 
 However, if you don't have Ruby 2.5 installed, please feel free to change the `.ruby-version` to whatever ruby version you have installed on your computer.
 
