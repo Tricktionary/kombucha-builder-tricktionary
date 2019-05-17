@@ -13,7 +13,7 @@ In this app there are tests for both rspec and minitest. Please choose whichever
 
 
 ## Tips
-This isn't a race and we don't expect everyone to finish all the features below. It's much better to work on one feature using all your acumen and best coding practices than it is to finish everything in a mad dash. We don't do mad dashes at Fullscript. We take our time and try to write the best code possible. Please do the same, have fun, and show us what you can do! 😀
+We don't expect everyone will finish all the features below but please try to complete as many as you can. Even though this is a test example, this should reflect your best production-like code. Please have fun and show us what you can do! 😀
 
 
 ## Feature request #1 - Better filtering
@@ -21,14 +21,14 @@ This isn't a race and we don't expect everyone to finish all the features below.
 As a user of the API I would like to filter kombucha teas by various attributes. Currently `get /api/kombuchas` returns all of the kombucha teas available but I would like to filter this list.
 
 ## Requirements
-Design an object that can filter kombucha teas by fizziness, caffeine_level and whether it's vegan.
+Design some way that you can filter kombucha teas by fizziness, caffeine_level and whether or not it's vegan.
 
+Examples:
 * `get /api/kombuchas, params: "fizziness" => "high"` should only return kombucha teas with 'high' fizziness.
 * `get /api/kombuchas, params: "caffeine_free" => "true"` should return all kombucha teas that are caffeine free.
 * `get /api/kombuchas, params: "vegan" => "true"` should return all vegan kombucha teas.
-* I should be able to combine these parameters into different combinations. Example: low fizzy, with caffeine but not vegan.
 
-* Bonus points: if we can re-use this filtering object to filter other resources in the API that would be great!
+I should be able to combine these parameters into different combinations. Example: low fizzy, with caffeine but not vegan.
 
 
 ## Feature request #2 - Ratings

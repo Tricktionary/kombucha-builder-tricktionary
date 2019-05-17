@@ -12,6 +12,7 @@ describe Api::KombuchasController, type: :request do
     it "renders a collection of kombuchas" do
       get '/api/kombuchas', params: {}, headers: headers
 
+      expect(response.status).to eq(200)
       expect(response_body.length).to eq(Kombucha.count)
     end
   end
