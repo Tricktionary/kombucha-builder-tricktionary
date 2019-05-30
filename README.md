@@ -13,7 +13,7 @@ In this app there are tests for both rspec and minitest. Please choose whichever
 
 
 ## Tips
-We don't expect everyone will finish all the features below but please try to complete as many as you can. Even though this is a test example, this should reflect your best production-like code. Please have fun and show us what you can do! 😀
+We don't expect everyone will finish all the features below but please try to complete as many as you can. (In our minds a senior dev should be able to complete all 4 features and an intermediate should be able to do about 3.) Even though this is a test example, this should reflect your best production-like code. Please have fun and show us what you can do! 😀
 
 
 ## Feature request #1 - Better filtering
@@ -21,7 +21,7 @@ We don't expect everyone will finish all the features below but please try to co
 As a user of the API I would like to filter kombucha teas by various attributes. Currently `get /api/kombuchas` returns all of the kombucha teas available but I would like to filter this list.
 
 ## Requirements
-Design some way that you can filter kombucha teas by fizziness, caffeine_level and whether or not it's vegan.
+Design some way that you can filter kombucha ingredients by fizziness, caffeine_level and whether or not it's vegan.
 
 Examples:
 * `get /api/kombuchas, params: "fizziness" => "high"` should only return kombucha teas with 'high' fizziness.
@@ -61,9 +61,9 @@ Build a random flight picker for kombucha recipes with the following rules:
   * Add an optional way to select a particular kombucha recipe as part of the flight.
 
 
-## Feature request 4 - Advanced Filtering (bonus round)
+## Feature request 4 - Advanced Filtering
 
-This is a bonus round if you have time. Build out your filtering object with some more advanced features.
+Build out your filtering object with some more advanced features.
 
 #### Requirements
 * Included Ingredients: return kombucha teas that contain the ingredients passed to it. Example: find all kombucha's that have coffee in them.
