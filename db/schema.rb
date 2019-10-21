@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_171055) do
+ActiveRecord::Schema.define(version: 2019_10_21_192312) do
+
+  create_table "flight_line_items", force: :cascade do |t|
+    t.integer "kombucha_id"
+    t.integer "flight_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flight_id"], name: "index_flight_line_items_on_flight_id"
+    t.index ["kombucha_id"], name: "index_flight_line_items_on_kombucha_id"
+  end
+
+  create_table "flights", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "ingredients", force: :cascade do |t|
     t.string "name"

@@ -30,6 +30,13 @@ Examples:
 
 I should be able to combine these parameters into different combinations. Example: low fizzy, with caffeine but not vegan.
 
+##### Kombucha Endpoint
+
+- get `/api/kombuchas`
+*params*
+- vegan: Boolean
+- caffeine_free: Boolean
+- fizziness: String
 
 ## Feature request #2 - Ratings
 
@@ -46,6 +53,21 @@ Add API endpoints so that users can:
  * Update an existing rating
  * In each endpoint, add an attribute in the response to display the average rating of a given kombucha tea. This average rating should be based on all user ratings for that particular kombucha tea.
 
+##### Rating Endpoints
+
+get `/api/ratings/:user_id` returns all ratings from user
+ 
+post `/api/ratings` creates a rating
+*params*
+  - Interger: user_id
+  - Interger: kombucha_id
+  - Interger: rating
+
+post `/api/update_rating` updates a rating if it exist
+*params*
+  - Interger: user_id
+  - Interger: kombucha_id
+  - Interger: rating
 
 ## Feature request # 3 - Kombucha Flights
 

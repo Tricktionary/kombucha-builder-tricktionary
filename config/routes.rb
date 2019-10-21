@@ -10,5 +10,8 @@ Rails.application.routes.draw do
     post 'ratings' => 'ratings#create'
     post 'update_ratings' => 'ratings#update'
 
+    get 'flights' => 'flights#get'
+    post 'flights' => 'flights#create'
+
   end
 end

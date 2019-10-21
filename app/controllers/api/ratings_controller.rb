@@ -1,7 +1,6 @@
 class Api::RatingsController < ApiController
   skip_before_action :verify_authenticity_token
 
- 
   def show
     user_id = params["user_id"].to_i
     @ratings = Rating.where(user_id: user_id)
