@@ -2,6 +2,7 @@
 
 class Kombucha < ApplicationRecord
   has_many :recipe_items
+  has_many :ratings
   has_many :ingredients, through: :recipe_items
 
   validates :name, presence: true
@@ -38,4 +39,7 @@ class Kombucha < ApplicationRecord
     return true
   end
 
+  def average_rating
+   self.ratings.average(:rating)
+  end 
 end

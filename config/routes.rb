@@ -5,5 +5,10 @@ Rails.application.routes.draw do
 
   namespace "api", module: :api do
     resources :kombuchas, only: [:index, :show, :create, :update]
+
+    get 'ratings/:user_id' => 'ratings#show'
+    post 'ratings' => 'ratings#create'
+    post 'update_ratings' => 'ratings#update'
+
   end
 end

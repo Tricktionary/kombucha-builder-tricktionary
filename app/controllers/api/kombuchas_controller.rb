@@ -17,7 +17,6 @@ class Api::KombuchasController < ApiController
 
     if caffeine_free.present?
       caffeine_free_kombuchas = []
-      
       @kombuchas.each do |kombucha|
         if kombucha.caffeine_free == caffeine_free.to_bool
           caffeine_free_kombuchas.append(kombucha)
