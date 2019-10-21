@@ -1,11 +1,41 @@
 # frozen_string_literal: true
 
 class Api::KombuchasController < ApiController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   before_action :set_kombucha, only: [:show, :update]
 
   def index
+    fizziness = params["fizziness"]
+    caffeine_free = params["caffeine_free"]
+    vegan = params["vegan"]
+    
     @kombuchas = Kombucha.all
+  
+    if fizziness.present?
+      @kombuchas = @kombuchas.where(fizziness_level: fizziness)
+    end 
+
+    if caffeine_free.present?
+      caffeine_free_kombuchas = []
+      
+      @kombuchas.each do |kombucha|
+        if kombucha.caffeine_free == caffeine_free.to_bool
+          caffeine_free_kombuchas.append(kombucha)
+        end  
+      end 
+      @kombuchas = caffeine_free_kombuchas
+    end 
+
+    if vegan.present?
+      vegan_kombuchas = []
+      @kombuchas.each do |kombucha|
+        if kombucha.vegan == vegan.to_bool
+          vegan_kombuchas.append(kombucha)
+        end  
+      end 
+      @kombuchas = vegan_kombuchas
+    end 
+
     render json: @kombuchas.map(&:to_h), status: :ok
   end
 

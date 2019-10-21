@@ -15,4 +15,27 @@ class Kombucha < ApplicationRecord
       "ingredients": self.ingredients.map(&:name)
     }
   end
+
+  def caffeine_free
+    ingredients = self.ingredients
+    ingredients.each do |ingredient|
+      if ingredient.caffeine_free == false
+        return false
+      end 
+    end
+
+    return true
+  end
+
+  def vegan
+    ingredients = self.ingredients
+    ingredients.each do |ingredient|
+      if ingredient.vegan == false
+        return false
+      end 
+    end
+
+    return true
+  end
+
 end
