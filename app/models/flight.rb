@@ -8,6 +8,7 @@ class Flight < ApplicationRecord
   def to_h
     {
       "id": self.id,
+      "name": self.name,
       "kombucha": self.kombucha.map(&:name)
     }
   end
