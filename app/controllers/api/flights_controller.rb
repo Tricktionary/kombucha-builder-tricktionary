@@ -38,11 +38,12 @@ class Api::FlightsController < ApiController
       end
     end
 
+    # Add Kombucha to the flight 
     for i in 1..flight_length do
       current_tea = tea[rand(tea.length)]
       kombuchas = Kombucha.joins(:ingredients, :recipe_items).where(ingredients: { id: current_tea.id }).to_a
       if rating.present?
-        kombuchas = kombucha_rating(rating, kombuchas)
+        kombuchas = kombuchas_with_rating_higher(rating, kombuchas)
       end 
       current_kombucha = kombuchas[rand(kombuchas.length)]
       FlightLineItem.create(kombucha: current_kombucha, flight: @flight)
@@ -51,7 +52,8 @@ class Api::FlightsController < ApiController
     render json: @flight.to_h, status: :ok
   end
 
-  def kombucha_rating(rating, kombuchas)
+  # Get a list of Kmobucha with a rating higher or equal then inputed rating
+  def kombuchas_with_rating_higher(rating, kombuchas)
     temp_kombutchas = []
     kombuchas.each do |kombucha|
       if kombucha.average_rating >= rating
