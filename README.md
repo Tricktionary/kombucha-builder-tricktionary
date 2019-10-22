@@ -16,7 +16,7 @@ In this app there are tests for both rspec and minitest. Please choose whichever
 We don't expect everyone will finish all the features below but please try to complete as many as you can. (In our minds a senior dev should be able to complete all 4 features and an intermediate should be able to do about 3.) Even though this is a test example, this should reflect your best production-like code. Please have fun and show us what you can do! 😀
 
 
-## Feature request #1 - Better filtering
+## Feature request #1 - Better filtering ✅
 
 As a user of the API I would like to filter kombucha teas by various attributes. Currently `get /api/kombuchas` returns all of the kombucha teas available but I would like to filter this list.
 
@@ -37,7 +37,7 @@ get `/api/kombuchas`: Get Kombutcha with optimal filtering
 - caffeine_free: Boolean, (Optional)
 - fizziness: String, (Optional)
 
-## Feature request #2 - Ratings
+## Feature request #2 - Ratings ✅
 
 Users of this app want a way to add a rating to different kombucha recipes through the API.
 
@@ -52,7 +52,7 @@ Add API endpoints so that users can:
  * Update an existing rating
  * In each endpoint, add an attribute in the response to display the average rating of a given kombucha tea. This average rating should be based on all user ratings for that particular kombucha tea.
 
-##### Rating Endpoints
+##### Rating Endpoints ✅
 
 get `/api/ratings/:user_id`: returns all ratings from specified user 
  
@@ -68,7 +68,7 @@ post `/api/update_rating`: updates a rating if it exist
   - Interger: kombucha_id
   - Interger: rating
 
-## Feature request # 3 - Kombucha Flights
+## Feature request # 3 - Kombucha Flights ✅
 
 As a kombucha restauranteur, I want a way to surprise and delight my customers by generating a random "flight" of kombucha drinks.
 
