@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class Api::FlightsController < ApiController
-  skip_before_action :verify_authenticity_token
-
+  before_action :authenticate_user!
+ 
   def create
     name = params['name']
     kombucha_id = params['kombucha_id'].to_i

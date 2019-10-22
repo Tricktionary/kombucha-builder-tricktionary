@@ -42,7 +42,6 @@ describe Api::KombuchasController, type: :request do
 
     it "render a collection of vegan=false and caffein_free=true kombucha" do
       get '/api/kombuchas', params: { vegan: 'false', caffeine_free: 'true'}, headers: headers
-      byebug
       expect(response.status).to eq(200)
       expect(response_body.length).to eq(0)
     end
@@ -51,7 +50,6 @@ describe Api::KombuchasController, type: :request do
   describe "#show" do
     it "shows a kombucha" do
       get "/api/kombuchas/#{kombucha.id}", params: {}, headers: headers
-
       expect(response.message).to eq("OK")
       expect(response_body["id"]).to eq(kombucha.id)
     end

@@ -52,7 +52,7 @@ Add API endpoints so that users can:
  * Update an existing rating
  * In each endpoint, add an attribute in the response to display the average rating of a given kombucha tea. This average rating should be based on all user ratings for that particular kombucha tea.
 
-##### Rating Endpoints ✅
+##### Rating Endpoints
 
 get `/api/ratings/:user_id`: returns all ratings from specified user 
  

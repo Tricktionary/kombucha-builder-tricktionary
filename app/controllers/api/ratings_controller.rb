@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Api::RatingsController < ApiController
-  skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
 
   def show
     user_id = params["user_id"].to_i
@@ -46,6 +46,7 @@ class Api::RatingsController < ApiController
         @rating.save
       else
         render json: { errors: "Rating does not exist " }, status: :not_found
+        return
       end
 
       render json: @rating.to_h, status: :ok
