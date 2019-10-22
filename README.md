@@ -32,8 +32,7 @@ I should be able to combine these parameters into different combinations. Exampl
 
 ##### Kombucha Endpoint
 
-- get `/api/kombuchas`
-*params*
+get `/api/kombuchas`: Get Kombutcha with optimal filtering
 - vegan: Boolean, (Optional)
 - caffeine_free: Boolean, (Optional)
 - fizziness: String, (Optional)
@@ -55,15 +54,15 @@ Add API endpoints so that users can:
 
 ##### Rating Endpoints
 
-get `/api/ratings/:user_id` returns all ratings from user
+get `/api/ratings/:user_id`: returns all ratings from specified user 
  
-post `/api/ratings` creates a rating
+post `/api/ratings`: creates a rating for a kombutcha drink
 *params*
   - Interger: user_id
   - Interger: kombucha_id
   - Interger: rating
 
-post `/api/update_rating` updates a rating if it exist
+post `/api/update_rating`: updates a rating if it exist
 *params*
   - Interger: user_id
   - Interger: kombucha_id
@@ -82,8 +81,9 @@ Build a random flight picker for kombucha recipes with the following rules:
   * Add an optional way to select kombucha recipes greater then a given average rating.
   * Add an optional way to select a particular kombucha recipe as part of the flight.
 
-post `/api/flights` create a flight of 4 random kombutcha
-*params*
+##### Flight Endpoints
+
+post `/api/flights`: create a flight of 4 random kombutcha with option of adding a specified kombutcha drink or filter by rating
   - String: name
   - Integer: kombucha_id, (Optional)
   - Integer: rating, (Optional)
