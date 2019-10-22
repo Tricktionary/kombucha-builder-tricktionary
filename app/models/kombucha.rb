@@ -17,6 +17,10 @@ class Kombucha < ApplicationRecord
     }
   end
 
+  def base_ingredient
+    self.ingredients.where(base: true).first
+  end 
+
   def caffeine_free
     ingredients = self.ingredients
     ingredients.each do |ingredient|
