@@ -6,7 +6,10 @@ class Api::FlightsController < ApiController
   def create
     name = params['name']
     kombucha_id = params['kombucha_id'].to_i
-    rating = params['rating'].to_f
+
+    if params['rating'].present?
+      rating = params['rating'].to_f
+    end 
     
     # Check Valid Flight Name
     if Flight.where(name: name).exists?
@@ -35,12 +38,24 @@ class Api::FlightsController < ApiController
 
     for i in 1..flight_length do
       current_tea = tea[rand(tea.length)]
-      kombucha = Kombucha.joins(:ingredients, :recipe_items).where(ingredients: { id: current_tea.id })
-      current_kombucha = kombucha[rand(kombucha.length)]
+      kombuchas = Kombucha.joins(:ingredients, :recipe_items).where(ingredients: { id: current_tea.id }).to_a
+      if rating.present?
+        kombuchas = kombucha_rating(rating, kombuchas)
+      end 
+      current_kombucha = kombuchas[rand(kombuchas.length)]
       FlightLineItem.create(kombucha: current_kombucha, flight: @flight)
       tea.delete(current_tea)
     end
     render json: @flight.to_h, status: :ok
-  
   end
+
+  def kombucha_rating(rating, kombuchas)
+    temp_kombutchas = []
+    kombuchas.each do |kombucha|
+      if kombucha.average_rating >= rating
+        temp_kombutchas.append(kombucha)
+      end 
+    end
+    temp_kombutchas
+  end 
 end

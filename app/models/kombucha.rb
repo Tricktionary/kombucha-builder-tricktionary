@@ -44,6 +44,10 @@ class Kombucha < ApplicationRecord
   end
 
   def average_rating
-    self.ratings.average(:rating)
+    if self.ratings.exists?
+      self.ratings.average(:rating)
+    else
+      5.0
+    end
   end
 end
