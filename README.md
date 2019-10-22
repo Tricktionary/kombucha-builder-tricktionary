@@ -34,9 +34,9 @@ I should be able to combine these parameters into different combinations. Exampl
 
 - get `/api/kombuchas`
 *params*
-- vegan: Boolean
-- caffeine_free: Boolean
-- fizziness: String
+- vegan: Boolean, (Optional)
+- caffeine_free: Boolean, (Optional)
+- fizziness: String, (Optional)
 
 ## Feature request #2 - Ratings
 
@@ -82,6 +82,11 @@ Build a random flight picker for kombucha recipes with the following rules:
   * Add an optional way to select kombucha recipes greater then a given average rating.
   * Add an optional way to select a particular kombucha recipe as part of the flight.
 
+post `/api/flights` create a flight of 4 random kombutcha
+*params*
+  - String: name
+  - Integer: kombucha_id, (Optional)
+  - Integer: rating, (Optional)
 
 ## Feature request 4 - Advanced Filtering
 
