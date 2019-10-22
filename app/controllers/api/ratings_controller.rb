@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Api::RatingsController < ApiController
   skip_before_action :verify_authenticity_token
 
@@ -12,33 +14,33 @@ class Api::RatingsController < ApiController
     user_id = params["user_id"].to_i
     kombucha_id = params["kombucha_id"].to_i
     rating = params["rating"].to_i
-    
+
     if valid_rating(rating)
-      if Rating.where(user_id:user_id,kombucha_id:kombucha_id).exists?
+      if Rating.where(user_id: user_id, kombucha_id: kombucha_id).exists?
         @rating = Rating.find_by(user_id: user_id, kombucha_id: kombucha_id)
-      else 
+      else
         @rating = Rating.create(
           user_id: user_id,
-          kombucha_id:kombucha_id,
+          kombucha_id: kombucha_id,
           rating: rating,
         )
       end
 
       render json: @rating.to_h, status: :ok
     else
-      render json: {errors: "Invalid rating"}, status: :error
-    end 
-  end 
+      render json: { errors: "Invalid rating" }, status: :error
+    end
+  end
 
   def update
     user_id = params["user_id"].to_i
     kombucha_id = params["kombucha_id"].to_i
     rating = params["rating"].to_i
-    
+
     if valid_rating(rating)
 
-      @rating = Rating.find_by(user_id:user_id,kombucha_id:kombucha_id)
-      
+      @rating = Rating.find_by(user_id: user_id, kombucha_id: kombucha_id)
+
       if @rating.present?
         @rating.rating = rating
         @rating.save
@@ -47,16 +49,16 @@ class Api::RatingsController < ApiController
       end
 
       render json: @rating.to_h, status: :ok
-    else 
-      render json: {errors: "Invalid rating"}, status: :error
-    end 
-  end 
+    else
+      render json: { errors: "Invalid rating" }, status: :error
+    end
+  end
 
   def valid_rating(rating)
-    if rating >= 1  && rating <= 5
+    if rating >= 1 && rating <= 5
       true
-    else 
+    else
       false
-    end 
-  end 
-end 
+    end
+  end
+end

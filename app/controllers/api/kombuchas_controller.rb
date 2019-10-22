@@ -8,32 +8,32 @@ class Api::KombuchasController < ApiController
     fizziness = params["fizziness"]
     caffeine_free = params["caffeine_free"]
     vegan = params["vegan"]
-    
+
     @kombuchas = Kombucha.all
-  
+
     if fizziness.present?
       @kombuchas = @kombuchas.where(fizziness_level: fizziness)
-    end 
+    end
 
     if caffeine_free.present?
       caffeine_free_kombuchas = []
       @kombuchas.each do |kombucha|
         if kombucha.caffeine_free == caffeine_free.to_bool
           caffeine_free_kombuchas.append(kombucha)
-        end  
-      end 
+        end
+      end
       @kombuchas = caffeine_free_kombuchas
-    end 
+    end
 
     if vegan.present?
       vegan_kombuchas = []
       @kombuchas.each do |kombucha|
         if kombucha.vegan == vegan.to_bool
           vegan_kombuchas.append(kombucha)
-        end  
-      end 
+        end
+      end
       @kombuchas = vegan_kombuchas
-    end 
+    end
 
     render json: @kombuchas.map(&:to_h), status: :ok
   end

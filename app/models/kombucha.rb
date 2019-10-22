@@ -22,10 +22,10 @@ class Kombucha < ApplicationRecord
     ingredients.each do |ingredient|
       if ingredient.caffeine_free == false
         return false
-      end 
+      end
     end
 
-    return true
+    true
   end
 
   def vegan
@@ -33,13 +33,13 @@ class Kombucha < ApplicationRecord
     ingredients.each do |ingredient|
       if ingredient.vegan == false
         return false
-      end 
+      end
     end
 
-    return true
+    true
   end
 
   def average_rating
-   self.ratings.average(:rating)
-  end 
+    self.ratings.average(:rating)
+  end
 end

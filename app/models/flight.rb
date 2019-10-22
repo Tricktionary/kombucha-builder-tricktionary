@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Flight < ApplicationRecord
   has_many :flight_line_item
   has_many :kombucha, through: :flight_line_item

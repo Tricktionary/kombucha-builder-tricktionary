@@ -15,6 +15,37 @@ describe Api::KombuchasController, type: :request do
       expect(response.status).to eq(200)
       expect(response_body.length).to eq(Kombucha.count)
     end
+
+    it "render a collection of caffein_free=false kombucha" do
+      get '/api/kombuchas', params: { caffeine_free: 'false' }, headers: headers
+      expect(response.status).to eq(200)
+      expect(response_body.length).to eq(4)
+    end
+
+    it "render a collection of caffein_free=true kombucha" do
+      get '/api/kombuchas', params: { caffeine_free: 'true' }, headers: headers
+      expect(response.status).to eq(200)
+      expect(response_body.length).to eq(1)
+    end
+    
+    it "render a collection of vegan=true kombucha" do
+      get '/api/kombuchas', params: { vegan: 'true' }, headers: headers
+      expect(response.status).to eq(200)
+      expect(response_body.length).to eq(4)
+    end
+
+    it "render a collection of vegan=false kombucha" do
+      get '/api/kombuchas', params: { vegan: 'false' }, headers: headers
+      expect(response.status).to eq(200)
+      expect(response_body.length).to eq(1)
+    end
+
+    it "render a collection of vegan=false and caffein_free=true kombucha" do
+      get '/api/kombuchas', params: { vegan: 'false', caffeine_free: 'true'}, headers: headers
+      byebug
+      expect(response.status).to eq(200)
+      expect(response_body.length).to eq(0)
+    end
   end
 
   describe "#show" do
