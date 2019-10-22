@@ -5,8 +5,10 @@ class Api::FlightsController < ApiController
  
   def create
     name = params['name']
-    kombucha_id = params['kombucha_id'].to_i
 
+    if params['kombucha_id'].present?
+      kombucha_id = params['kombucha_id'].to_i
+    end 
     if params['rating'].present?
       rating = params['rating'].to_f
     end 
@@ -22,7 +24,7 @@ class Api::FlightsController < ApiController
     flight_length = 4
     tea_str = "tea"
     tea = Ingredient.where("name like ?", "%#{tea_str}%").to_a
-
+    
     if kombucha_id.present?
       current_kombucha = Kombucha.find(kombucha_id)
       if !current_kombucha.present?
